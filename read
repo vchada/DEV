@@ -1,0 +1,8 @@
+Login and welcome page are tightly coupled with Spring MVC both pages are executes and routing through Spring MVC.if we change the welcome logic alone we can't check login operation because work flow of both the screen are interdependent,after successful login menu loading & navigation operation are driving from welcome JSP. 
+we should change first login then we need to move welcome JSP page.in order to change the approach, First thing we need to remove server logic from Spring MVC then we need to configure similar logic on sprintboot with existing RestAPI Controllers. Other side, our Content of all the navigation populating through IFrame , it's impacting loading time on the Browser. this approach not suitable and won't work when we move to JSP to Angular.
+
+In Order to fix the above issues,we have two approaches,  
+1.Create a header component which will we need to inject in home page after successful login.
+2.we need to add whole navigation Menu in app component as we are using app component as root element for all other screens.
+
+Decouple the UI from JSP will take time as as we need to decouple whole work flow(login.jsp and welcome.jsp) from MVC and inject the login and welcome or home page to REST Based.
